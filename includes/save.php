@@ -1,31 +1,12 @@
 <?php
 
+require_once("functions.php");
+require_once("../header.php");
+
 $seconds = $_POST["workSeconds"];
 $comment = $_POST["comment"];
 
-$getHours = floor($seconds / 3600);
-$getMins = floor(($seconds - ($getHours*3600)) / 60);
-$getSecs = floor($seconds % 60);
-
-$timeFormatted = "";
-
-if($getHours < 10) {
-  $timeFormatted = "0" . $getHours . ":";
-} else {
-  $timeFormatted = $getHours . ":";
-}
-
-if($getMins < 10) {
-  $timeFormatted .= "0" . $getMins . ":";
-} else {
-  $timeFormatted .= $getMins;
-}
-
-if($getSecs <= 10) {
-  $timeFormatted .= "0" . $getSecs;
-} else {
-  $timeFormatted .= $getSecs;
-}
+$timeFormatted = calcSeconds($seconds);
 
 // Include db constants
 require_once("./db/dbconstants.php");
@@ -39,11 +20,17 @@ if($conn->connect_error) {
 
 $sql = "INSERT INTO `time_record` (`recordID`, `recordComment`, `recordTime`) VALUES (NULL, '$comment', '$seconds')";
 
-if($conn->query($sql) === TRUE) {
-  echo "Recorded time: " . $timeFormatted;
-  header("/");
-} else {
+?>
+
+<?php  if($conn->query($sql) === TRUE) {
+  $conn->close(); ?>
+  <p><?php echo "Recorded time: " . $timeFormatted; ?></p>
+<?php } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
+?>
+
+<a href="../index.php">Back</a>
+
+<?php require_once("../footer.php"); ?>

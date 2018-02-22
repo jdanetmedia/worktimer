@@ -4,9 +4,9 @@ var visibleTimer = document.getElementById('visibleTimer'),
     clear = document.getElementById('clear'),
     seconds = 0,
     minutes = 0,
-    hours = 0,
+    hours = 1,
     t;
-    onlySeconds = 0;
+    onlySeconds = 60;
 
 function add() {
     seconds++;

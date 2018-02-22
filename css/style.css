@@ -6839,13 +6839,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 body {
   color: #333; }
 
-.timerContainer {
-  background: #ebebeb;
-  padding: 40px;
-  text-align: center; }
-  .timerContainer .visibleTimer {
-    display: block;
-    font-size: 36px;
-    padding: 20px; }
+.timerTop {
+  background-color: #ebebeb; }
+  .timerTop .timerCenter {
+    width: 90%;
+    max-width: 800px; }
+    .timerTop .timerCenter .timerContainer {
+      padding: 40px;
+      text-align: center; }
+      .timerTop .timerCenter .timerContainer .visibleTimer {
+        display: block;
+        font-size: 36px;
+        padding: 20px; }
 
 /*# sourceMappingURL=style.css.map */
