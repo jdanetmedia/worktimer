@@ -1,3 +1,12 @@
 body {
-  color: $dark_font;  
+  color: $dark_font;
+}
+
+.centerTitle {
+  text-align: center;
+}
+
+nav .brand-logo {
+  display: inline-block;
+  padding-left: 20px;
 }

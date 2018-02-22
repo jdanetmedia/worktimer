@@ -21,7 +21,7 @@ function calcSeconds($seconds) {
     $timeFormatted .= $getMins . ":";
   }
 
-  if($getSecs <= 10) {
+  if($getSecs < 10) {
     $timeFormatted .= "0" . $getSecs;
   } else {
     $timeFormatted .= $getSecs;

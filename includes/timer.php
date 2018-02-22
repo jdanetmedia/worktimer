@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="row timerCenter">
-  <form class="col s12" action="includes/save.php" method="post">
+  <form class="col s12" action="save.php" method="post">
       <!-- TODO: Floating labels not working -->
       <input id="workSeconds" type="hidden" name="workSeconds" value="">
       <div class="row">

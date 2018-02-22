@@ -20,8 +20,9 @@
         <table class="responsive-table bordered">
             <thead>
               <tr>
-                  <th>Time</th>
+                  <th>Date</th>
                   <th>Description</th>
+                  <th>Time spend</th>
               </tr>
             </thead>
             <tbody>
@@ -31,20 +32,32 @@
 
                 $query = mysqli_query($conn, $sql) or die("Error");
 
-              ?>
-
-              <?php while($item = mysqli_fetch_array($query)) { ?>
-                <tr>
-                  <td>
-                    <?php
-                      $theTime = calcSeconds($item["recordTime"]);
-                      echo $theTime;
-                    ?>
-                  </td>
-                  <td><?php echo $item["recordComment"] ?>
-                  </td>
-                </tr>
-              <?php } ?>
+                if($query) { ?>
+                  <?php while($item = mysqli_fetch_array($query)) { ?>
+                    <tr>
+                      <td>
+                        <?php
+                          $timestamp = $item["recordTimestamp"];
+                          $theDate = date("j M Y", strtotime($timestamp));
+                          echo $theDate;
+                        ?>
+                      </td>
+                      <td>
+                        <?php echo $item["recordComment"] ?>
+                      </td>
+                      <td>
+                        <?php
+                          $theTime = calcSeconds($item["recordTime"]);
+                          echo $theTime;
+                        ?>
+                      </td>
+                    </tr>
+                  <?php }
+                } else { ?>
+                  <tr>
+                    <td>There is nothing to show yet...</td>
+                  </tr>
+                <?php } ?>
             </tbody>
           </table>
       </div>
