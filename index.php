@@ -1,6 +1,7 @@
-<?php require_once("header.php"); ?>
+<?php
+  require_once("header.php");
+?>
   <div class="container">
-    <h1>Worktimer</h1>
-    <a href="start.php">Start timer</a>
+    <?php include("includes/timer.php"); ?>
   </div>
 <?php require_once("footer.php"); ?>

@@ -6835,4 +6835,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   stroke-linecap: round;
   /*shape-rendering: crispEdges;*/ }
 
+/* COLORS */
+body {
+  color: #333; }
+
+.timerContainer {
+  background: #ebebeb;
+  padding: 40px;
+  text-align: center; }
+  .timerContainer .visibleTimer {
+    display: block;
+    font-size: 36px;
+    padding: 20px; }
+
 /*# sourceMappingURL=style.css.map */
